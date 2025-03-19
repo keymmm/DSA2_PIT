@@ -10,7 +10,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Layout />}>
+          <Route path="/DSA2_PIT" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="books" element={<Books />} />
 

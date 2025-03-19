@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 
 function Navbar() {
   const navLinks = [
-    { label: "Home", path: "/" },
+    { label: "Home", path: "/DSA2_PIT" },
     { label: "Books", path: "books" },
     { label: "Borrowed Books", path: "borrowed-books" },
   ];
