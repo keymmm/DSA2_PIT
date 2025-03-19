@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
+import ustp from "../assets/images.jpg";
 
 function Hero() {
   return (
@@ -21,7 +22,7 @@ function Hero() {
             resources—anytime, anywhere.
           </p>
 
-          <Link to="/books">
+          <Link to="/DSA2_PIT/books">
             <Button className="cursor-pointer">Start Exploring</Button>
           </Link>
         </div>
@@ -29,7 +30,7 @@ function Hero() {
         {/* Right Side - Image */}
         <div className="w-full m-5 ">
           <img
-            src="../src/assets/images.jpg"
+            src={ustp}
             alt="Library Illustration"
             className="rounded w-full"
           />

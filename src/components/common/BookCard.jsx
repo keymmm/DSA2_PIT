@@ -10,6 +10,7 @@ import {
 import { Button } from "../ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link, useSearchParams } from "react-router-dom";
+// import book_image from "../";
 
 function BookCard() {
   const initialBooks = [
@@ -121,11 +122,7 @@ function BookCard() {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <img
-          src="../src/assets/book.jpg"
-          alt={book.title}
-          className="flex rounded-sm "
-        />
+        <img src={book.image} alt={book.title} className="flex rounded-sm " />
         <p className="text-muted-foreground mt-2 line-clamp-1 text-sm hover:line-clamp-none">
           By {book.author}
         </p>

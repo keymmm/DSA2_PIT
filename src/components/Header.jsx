@@ -10,17 +10,18 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import Login from "@/pages/Login";
+
 import { Link } from "react-router-dom";
+import ustp_logo from "../assets/ustp-logo.png";
 
 function Header() {
   return (
     <>
       <header className="flex text-sm  items-center  pl-5 h-14 bg-white border-b-2 sticky top-0 z-50   ">
-        <Link to="/">
+        <Link to="/DSA2_PIT">
           <img
             className="w-8 h-8 flex justify-start items-start"
-            src="../src/assets/ustp-logo.png"
+            src={ustp_logo}
             alt="ustp-logo"
           />
         </Link>
