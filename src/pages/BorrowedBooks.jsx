@@ -4,9 +4,9 @@ import Modal from "@/components/Modal";
 import React, { useState } from "react";
 import { Link, NavLink, Outlet, useParams } from "react-router-dom";
 
-function BorrowedBooks() { 
+function BorrowedBooks() {
   const { id } = useParams();
-  
+
   const person = {
     name: "quem",
     age: 19,
@@ -14,7 +14,7 @@ function BorrowedBooks() {
 
   return (
     <>
-      <nav className="flex  h-screen items-center justify-evenly">
+      <nav className="flex h-screen items-center justify-evenly">
         <NavLink
           to="."
           end

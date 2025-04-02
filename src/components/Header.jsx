@@ -17,16 +17,15 @@ import ustp_logo from "../assets/ustp-logo.png";
 function Header() {
   return (
     <>
-      <header className="flex text-sm  items-center  pl-5 h-14 bg-white border-b-2 sticky top-0 z-50   ">
+      <header className="fixed top-0 right-0 left-0 z-0 flex h-14 items-center bg-white pl-5 text-sm shadow-sm">
         <Link to="/DSA2_PIT">
           <img
-            className="w-8 h-8 flex justify-start items-start"
+            className="flex h-8 w-8 items-start justify-start"
             src={ustp_logo}
             alt="ustp-logo"
           />
         </Link>
         <Navbar />
-        {/* <Login /> */}
 
         <DropdownMenu className="flex items-end justify-end" asChild>
           <DropdownMenuTrigger asChild>

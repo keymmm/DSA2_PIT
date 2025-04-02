@@ -2,13 +2,22 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: poppins;
-  src: url("./assets/fonts/Poppins-Regular.ttf");
+  src: url("./assets/fonts/Poppins-Bold.ttf");
+  font-weight: bold;
 }
 
 @theme {
   --font-poppins: poppins, "sans-serif";
 }
+
 * {
   font-family: poppins;
 }

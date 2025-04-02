@@ -16,7 +16,7 @@ function Modal() {
 
   return (
     <Dialog>
-      <DialogTrigger>LogIn</DialogTrigger>
+      <DialogTrigger>click me to show login page</DialogTrigger>
       <DialogContent className="w-100">
         <DialogHeader>
           <DialogTitle>Sign-in your account {person.name}</DialogTitle>
@@ -25,7 +25,7 @@ function Modal() {
             account and remove your data from our servers.
           </DialogDescription>
         </DialogHeader>
-        <form action="#" className="font-poppins">
+        <form action="#">
           <label htmlFor="email">Email</label>
           <Input
             type="email"

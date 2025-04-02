@@ -108,7 +108,7 @@ function BookCard() {
 
   function handleBorrow(book_id) {
     const borrowed = books.map((book) =>
-      book.id === book_id ? { ...book, isAvailable: false } : book
+      book.id === book_id ? { ...book, isAvailable: false } : book,
     );
 
     setBooks(borrowed);
@@ -117,18 +117,18 @@ function BookCard() {
   const bookElements = filterByYear.map((book) => (
     <Card key={book.id}>
       <CardHeader>
-        <CardTitle className="line-clamp-1  hover:line-clamp-none">
+        <CardTitle className="line-clamp-1 hover:line-clamp-none">
           {book.title}
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <img src={book.image} alt={book.title} className="flex rounded-sm " />
+        <img src={book.image} alt={book.title} className="flex rounded-sm" />
         <p className="text-muted-foreground mt-2 line-clamp-1 text-sm hover:line-clamp-none">
           By {book.author}
         </p>
         <Badge
           variant={book.isAvailable ? "secondary" : "outline"}
-          className={book.isAvailable && "text-green-600 "}
+          className={book.isAvailable && "text-green-600"}
         >
           {book.isAvailable ? "Available" : "Borrowed"}
         </Badge>
@@ -149,9 +149,9 @@ function BookCard() {
   ));
 
   return (
-    <div className="flex font-poppins justify-center  m-5">
+    <div className="font-poppins m-5 flex justify-center">
       {/* <Button onClick={() => setSearch({ year: 2008 })}>2008</Button> */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 max-w-6xl">
+      <div className="grid max-w-6xl grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-5">
         {bookElements}
       </div>
     </div>
