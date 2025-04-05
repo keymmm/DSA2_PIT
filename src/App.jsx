@@ -3,7 +3,7 @@ import {
   RouterProvider,
   createRoutesFromElements,
   Route,
-  useLoaderData,
+  
 } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Books from "./pages/Books";
@@ -27,7 +27,7 @@ function App() {
           <Route path="approved" element={<h1>hello world</h1>} />
           <Route path="viewDetails/:id" element={<h1>query</h1>} />
         </Route>
-        <Route path="*" element={<h1>404</h1>} />,
+        <Route path="*" element={<h1>404</h1>} />
       </Route>,
     ),
   );

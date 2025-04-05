@@ -9,13 +9,14 @@
 }
 
 @font-face {
-  font-family: poppins;
+  font-family: poppins-bold;
   src: url("./assets/fonts/Poppins-Bold.ttf");
   font-weight: bold;
 }
 
 @theme {
   --font-poppins: poppins, "sans-serif";
+  /* --font-bold: poppins-bold, "sans-serif"; */
 }
 
 * {
