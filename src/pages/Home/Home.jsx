@@ -67,7 +67,7 @@ function Home() {
 
   return (
     <>
-      <div className="m-0 bg-gray-100 p-12">
+      <div className="m-0 bg-gray-100 p-12 dark:bg-blue-950">
         <Hero />
         {/* pupular books */}
 
