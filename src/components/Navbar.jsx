@@ -15,7 +15,7 @@ function Navbar(props) {
   return (
     <nav className="flex items-center justify-center px-4 py-3 md:px-8">
       {/* Mobile Menu Button */}
-      <div className="absolute top-4 right-4 flex justify-self-end md:hidden">
+      <div className="absolute top-4 right-4 left-5 flex justify-self-end md:hidden">
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="text-gray-700 focus:outline-none"
@@ -23,6 +23,7 @@ function Navbar(props) {
           {menuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
+
       {/* Desktop Nav */}
       <div className="hidden flex-grow items-center justify-center space-x-6 text-sm md:flex">
         {navLinks.map((link) => (
