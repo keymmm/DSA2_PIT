@@ -13,11 +13,10 @@ import DashboardLayout from "./pages/admin/DashboardLayout";
 import Dashboard from "./pages/admin/Dashboard";
 
 function App() {
-  
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route
-        path="DSA2_PIT"
+        path="/"
         element={<Layout />}
         errorElement={<h1>theres an error</h1>}
       >
