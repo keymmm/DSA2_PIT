@@ -3,15 +3,17 @@ import {
   RouterProvider,
   createRoutesFromElements,
   Route,
-  
 } from "react-router-dom";
 import Home from "./pages/Home/Home";
-import Books from "./pages/Books";
-import BorrowedBooks from "./pages/BorrowedBooks";
+import Books from "./pages/Books/Books";
+import BorrowedBooks from "./pages/BorrowedBooks/BorrowedBooks";
 import Layout from "./components/Layout";
 import Modal from "./components/Modal";
+import DashboardLayout from "./pages/admin/DashboardLayout";
+import Dashboard from "./pages/admin/Dashboard";
 
 function App() {
+  
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route
@@ -21,6 +23,7 @@ function App() {
       >
         <Route index element={<Home />} />
         <Route path="books" element={<Books />} />
+
         <Route path="borrowed-books" element={<BorrowedBooks />}>
           <Route index element={<Modal />} />
           <Route path="cancel" element={<Modal />} />
@@ -28,6 +31,10 @@ function App() {
           <Route path="viewDetails/:id" element={<h1>query</h1>} />
         </Route>
         <Route path="*" element={<h1>404</h1>} />
+
+        <Route path="admin" element={<DashboardLayout />}>
+          <Route index element={<Dashboard />} />
+        </Route>
       </Route>,
     ),
   );

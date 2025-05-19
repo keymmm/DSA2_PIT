@@ -6,11 +6,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-// import { AspectRatio } from "@/components/ui/aspect-ratio";
+
 import { Button } from "../ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link, useSearchParams } from "react-router-dom";
-// import book_image from "../";
 
 function BookCard() {
   const initialBooks = [
@@ -122,7 +121,7 @@ function BookCard() {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <img src={book.image} alt={book.title} className="flex rounded-sm" />
+        <img src={book.image} alt={book.title} className="rounded-sm" />
         <p className="text-muted-foreground mt-2 line-clamp-1 text-sm hover:line-clamp-none">
           By {book.author}
         </p>
@@ -150,9 +149,9 @@ function BookCard() {
 
   return (
     <div className="font-poppins m-5 flex justify-center">
-      <Button onClick={() => setSearch({ year: 2008 })}>2008</Button>
+      {/* <Button onClick={() => setSearch({ year: 2008 })}>2008</Button> */}
       {/* another method to get query params */}
-      <Link to="?year=2008">2008</Link>
+      {/* <Link to="?year=2008">2008</Link>  */}
       <div className="grid max-w-6xl grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-5">
         {bookElements}
       </div>

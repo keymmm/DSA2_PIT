@@ -51,7 +51,7 @@ function Header() {
           size="icon"
           variant="ghost"
           onClick={toggleDarkMode}
-          className="mr-10 md:m-0"
+          className="mr-10 md:m-1"
         >
           {isDarkMode ? <SunIcon /> : <MoonIcon />}
         </Button>
@@ -67,7 +67,9 @@ function Header() {
             <DropdownMenuContent sideOffset={5} align="end">
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Profile</DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link to="profile">Profile</Link>
+              </DropdownMenuItem>
               <DropdownMenuItem>History</DropdownMenuItem>
               <DropdownMenuItem>Log out</DropdownMenuItem>
             </DropdownMenuContent>

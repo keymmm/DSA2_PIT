@@ -9,7 +9,6 @@ function Navbar(props) {
     { label: "Home", path: "." },
     { label: "Books", path: "books" },
     { label: "Borrowed Books", path: "borrowed-books" },
-    // { label: "logout", path: "/" },
   ];
 
   return (
@@ -38,17 +37,15 @@ function Navbar(props) {
           </NavLink>
         ))}
       </div>
+
       {/* Mobile Nav */}
       {menuOpen && (
-        <div className="absolute top-16 right-0 left-0 z-50 flex flex-col items-center bg-white py-4 shadow-md md:hidden">
+        <div className="absolute top-16 right-0 left-0 z-50 flex flex-col items-center bg-white py-4 shadow-md md:hidden dark:bg-[#121212] dark:text-white">
           {navLinks.map((link) => (
             <NavLink
               key={link.label}
-              className={({ isActive }) =>
-                isActive ? "mb-2 font-bold" : "mb-2 hover:font-bold"
-              }
               to={link.path}
-              onClick={() => setMenuOpen(false)}
+              onClick={() => setMenuOpen(!menuOpen)}
             >
               {link.label}
             </NavLink>
