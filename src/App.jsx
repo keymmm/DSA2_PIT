@@ -11,10 +11,16 @@ import Layout from "./components/Layout";
 import Modal from "./components/Modal";
 import DashboardLayout from "./pages/admin/DashboardLayout";
 import Dashboard from "./pages/admin/Dashboard";
+import LogIn from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
+
+    <> 
+    <Route path="/auth/login" element={<LogIn />} />
+    <Route path="/auth/register" element={<Register />} />
       <Route
         path="/"
         element={<Layout />}
@@ -34,7 +40,9 @@ function App() {
         <Route path="admin" element={<DashboardLayout />}>
           <Route index element={<Dashboard />} />
         </Route>
-      </Route>,
+       
+      </Route>
+      </> 
     ),
   );
 

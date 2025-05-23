@@ -32,7 +32,7 @@ function Hero() {
           >
             {Hero.description}
           </TextEffect>
-          <Link to="/DSA2_PIT/books">
+          <Link to="books">
             <Button className="mx-auto flex cursor-pointer">
               Browse the Library
             </Button>
