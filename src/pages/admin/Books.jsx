@@ -16,8 +16,7 @@ import { Edit, PlusIcon } from 'lucide-react';
 
 
 import { AddBooks } from './addBooks';
-import ustp from './Images.jpg'
-// import image from '../../../../node-mysql-crud/uploads/'
+
 
 
 
@@ -32,9 +31,6 @@ import ustp from './Images.jpg'
 function books() {
 
     const [books, setBooks] = useState([]);
-
-   
-    
 
     useEffect(() => {
         const fetchBooks = async () => {
@@ -88,7 +84,8 @@ function books() {
                                 <TableRow key={book.id}>
                                     <TableCell>
                                         <img
-                                            src={`http://localhost:3000/node-mysql-crud${book.cover_img}`}
+                                            // src={`http://localhost:3000/node-mysql-crud${book.cover_img}`}
+                                            src={`../../../cover_image/${book.cover_img}`}
                                             alt={book.title}
                                             className="w-12 h-16 object-cover rounded"
                                         />

@@ -30,6 +30,7 @@ export function AddBooks() {
     const [categories, setCategories] = useState([]);
     const [selectedAuthor, setSelectedAuthor] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
+    const [successModalOpen, setSuccessModalOpen] = useState(false);
 
 
     const fetchCategories = async () => {
@@ -66,48 +67,46 @@ export function AddBooks() {
         }
     };
 
-    const handleFrom = (formData) => {
+    const handleForm = (event) => {
+        event.preventDefault(); // stop the page from reloading
+
+        const formData = new FormData(event.target);
+
         const cover_img = formData.get('cover_img');
         const title = formData.get('title');
         const year = formData.get('year');
         const avl_copies = formData.get('avl_copies');
         const isbn = formData.get('isbn');
         const description = formData.get('description');
-        // console.log(title, author, genre, year, avl_copies, isbn, description);
-        // Handle form submission logic here
 
-        const addBook = async () => {
-            const formData = new FormData();
-            formData.append('cover_img', cover_img);
-            formData.append('title', title);
-            formData.append('authorId', selectedAuthor);
-            formData.append('categoryId', selectedCategory);
-            formData.append('publishedYear', year);
-            formData.append('copiesAvailable', avl_copies);
-            formData.append('isbn', isbn);
-            formData.append('description', description);
-            console.log(formData)
+        const formPayload = new FormData();
+        formPayload.append('cover_img', cover_img);
+        formPayload.append('title', title);
+        formPayload.append('authorId', selectedAuthor);
+        formPayload.append('categoryId', selectedCategory);
+        formPayload.append('publishedYear', year);
+        formPayload.append('copiesAvailable', avl_copies);
+        formPayload.append('isbn', isbn);
+        formPayload.append('description', description);
 
-            try {
-                const response = await fetch('http://localhost:3000/add-books', {
-                    method: 'POST',
-                    body: formData,
-                });
-                if (!response.ok) {
-                    throw new Error('Failed to add book');
-                }
-                const data = await response.json();
-                console.log(data);
-                // Optionally, you can update the UI or show a success message
-            } catch (error) {
+        fetch('http://localhost:3000/add-books', {
+            method: 'POST',
+            body: formPayload,
+        })
+            .then((res) => {
+                if (!res.ok) throw new Error('Failed to add book');
+                return res.json();
+            })
+            .then((data) => {
+                console.log('Book added successfully:', data);
+                setSuccessModalOpen(true);
+
+            })
+            .catch((error) => {
                 console.error('Error adding book:', error);
-            }
-        }
-        addBook();
-       
+            });
+    };
 
-
-    }
 
 
 
@@ -121,7 +120,19 @@ export function AddBooks() {
 
 
     return (
-        <Dialog className="w-200">
+        <>
+        <Dialog open={successModalOpen} onOpenChange={setSuccessModalOpen}>
+                <DialogContent>
+                    <DialogHeader>
+                        <DialogTitle>Book Added Successfully!</DialogTitle>
+                    </DialogHeader>
+                    <DialogFooter>
+                        <Button onClick={() => setSuccessModalOpen(false)}>Close</Button>
+                    </DialogFooter>
+                </DialogContent>
+            </Dialog>
+
+        <Dialog   className="w-200">
             <DialogTrigger asChild>
                 <Button className="cursor-pointer" > <PlusIcon />Add Books</Button>
             </DialogTrigger>
@@ -132,7 +143,7 @@ export function AddBooks() {
                         Fill in the form below to add a new book to the library.
                     </DialogDescription>
                 </DialogHeader>
-                <form action={handleFrom}  >
+                <form onSubmit={handleForm}  >
                     <div className="grid w-full max-w-sm items-center gap-1.5 mb-2">
                         <Label htmlFor="picture">Cover Image</Label>
                         <Input name="cover_img" id="picture" type="file" />
@@ -148,9 +159,9 @@ export function AddBooks() {
 
                         <div className="grid w-full max-w-sm items-center gap-1.5">
                             {/* <Label htmlFor="author" >
-                                Author
-                            </Label>
-                            <Input name="author" id="author" placeholder="diwata pares" className="col-span-4" /> */}
+                                    Author
+                                </Label>
+                                <Input name="author" id="author" placeholder="diwata pares" className="col-span-4" /> */}
                             <Select onValueChange={setSelectedAuthor}>
                                 <Label >Author</Label>
                                 <SelectTrigger className="w-[180px]">
@@ -172,7 +183,7 @@ export function AddBooks() {
 
 
                         <div className="grid w-full max-w-sm items-center gap-1.5">
-                            <Select onValueChange={ setSelectedCategory}>
+                            <Select onValueChange={setSelectedCategory}>
                                 <Label >Category</Label>
                                 <SelectTrigger className="w-[180px]">
                                     <SelectValue placeholder="Select a category" />
@@ -189,18 +200,18 @@ export function AddBooks() {
                                 </SelectContent>
                             </Select>
                         </div>
-                        
+
                         <div className="grid w-full max-w-sm items-center gap-1.5">
                             <Label htmlFor="year" >
                                 Year
                             </Label>
-                            <Input name="year" id="year" placeholder="programming" className="col-span-4" />
+                            <Input type='number' name="year" id="year" placeholder="2025" className="col-span-4" />
                         </div>
                         <div className="grid w-full max-w-sm items-center gap-1.5">
                             <Label htmlFor="available_copies"  >
                                 Avl Copies
                             </Label>
-                            <Input name="avl_copies" id="available_copies" placeholder="190" className="col-span-4" />
+                            <Input  type='number' name="avl_copies" id="available_copies" placeholder="190" className="col-span-4" />
                         </div>
 
                     </div>
@@ -217,10 +228,11 @@ export function AddBooks() {
                     {/* </div> */}
                     <DialogFooter className="mt-4">
                         <Button type="reset" variant="outline">Cancel</Button>
-                        <Button type="submit">Add</Button> 
+                        <Button type="submit">Add</Button>
                     </DialogFooter>
                 </form>
             </DialogContent>
         </Dialog>
+        </>
     )
 }

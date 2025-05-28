@@ -59,16 +59,16 @@ function BookCard() {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <img src={book.image} alt={book.title} className="rounded-sm " />
+        <img  src={`../../../cover_image/${book.cover_img}`} alt={book.title} className="rounded-sm " />
         
         <p className="text-muted-foreground mt-2 line-clamp-1 text-sm hover:line-clamp-none">
           By {book.author}
         </p>
         <Badge
-          variant={book.is_available ? "secondary" : "outline"}
-          className={book.is_available && "text-green-600"}
+          variant={book.is_available  ? "secondary" : "outline"}
+          className={book.is_available  && "text-green-600"}
         >
-          {book.is_available ? "Available" : "Borrowed"}
+          {book.is_available  ? "Available" : "Borrowed"}
         </Badge>
         <Badge variant="outline" className="ml-2">
           {book.published_year}
