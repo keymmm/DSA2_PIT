@@ -1,8 +1,8 @@
 import React from "react";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
-import ustp from "../assets/images.jpg";
 import { TextEffect } from "./ui/text-effect";
+import ustp from '../assets/ustp-logo.png'
 
 function Hero() {
   const Hero = {

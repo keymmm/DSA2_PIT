@@ -59,12 +59,12 @@ function Header() {
         <div className="ml-auto hidden items-end justify-end md:flex">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Avatar className="mr-5">
+              <Avatar className="mr-2 h-8 w-8 cursor-pointer">
                 <AvatarImage src="https://github.com/shadcn.png" />
                 <AvatarFallback>QM</AvatarFallback>
               </Avatar>
             </DropdownMenuTrigger>
-            <DropdownMenuContent sideOffset={5} align="end">
+            <DropdownMenuContent align="end">
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem>
